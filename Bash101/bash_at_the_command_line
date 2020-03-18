@@ -1,0 +1,6 @@
+mkdir = make directory
+touch = make a file in a directory
+vim = edit a file in a directory
+ls = list directories
+ls -la = list directories with permissions
+
