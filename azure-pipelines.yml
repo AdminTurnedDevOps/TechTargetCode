@@ -12,13 +12,21 @@ pool:
 steps:
 - task: TerraformInstaller@0
   inputs:
-    terraformVersion: '0.12.3'
+    terraformVersion: '0.12.24'
 - task: TerraformTaskV1@0
   inputs:
     provider: 'azurerm'
     command: 'init'
-    backendServiceArm: $(sub)
-    backendAzureRmResourceGroupName: 'Dev10'
-    backendAzureRmStorageAccountName: 'dev10diag744'
-    backendAzureRmContainerName: 'bootdiagnostics-techubunt-d8db63f3-f78e-4887-a628-bf26b7ab654c'
+    workingDirectory: 'StorageAccount-Terraform'
+    backendServiceArm: 'Mike-Pay-As-You-Go (220284d2-6a19-4781-87f8-5c564ec4fec9)'
+    backendAzureRmResourceGroupName: 'dev2'
+    backendAzureRmStorageAccountName: 'storemfwmw3heqnyuk'
+    backendAzureRmContainerName: 'testcontainer'
     backendAzureRmKey: 'tf/terraform.tfstate'
+
+- task: TerraformTaskV1@0
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: 'StorageAccount-Terraform'
+    environmentServiceNameAzureRM: 'Mike-Pay-As-You-Go (220284d2-6a19-4781-87f8-5c564ec4fec9)'
