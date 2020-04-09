@@ -1,3 +1,12 @@
+terraform {
+  backend "azurerm" {
+    resource_group_name = "dev2"
+    storage_account_name = "storemfwmw3heqnyuk"
+    container_name = "testcontainer"
+    key = "terraform.state"
+  }
+}
+
 provider "azurerm" {
   version = "2.0.0"
   features {}
